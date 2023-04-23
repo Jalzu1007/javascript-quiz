@@ -12,8 +12,7 @@ body {
 header {
     color: #2B3467;
     padding: 1rem;
-   /* box-shadow: 0 0 10px #2B3467;*/
-   border-bottom: 10px solid #2B3467;
+   border-bottom: 5px solid #2B3467;
 }
   
 h1 {
@@ -48,7 +47,7 @@ p {
     align-items: center;
   }
   
-  .hidden {
+  /* .hidden {
     display: none;
   }
-  
+   */
