@@ -59,7 +59,7 @@ function startQuiz() {
     timerDiv.removeAttribute("style");
 
     setInterval(function timer() {
-        timerVar.innerHTML = "Time: " + seconds;
+        timerbtn.innerHTML = "Time: " + seconds;
         seconds--;
         if (seconds === 0 || seconds < 0) {
             endQuiz();
@@ -76,12 +76,14 @@ function renderQuestion(num) {
     const questionBtn1 = document.getElementById("question1");
     const questionBtn2 = document.getElementById("question2");
     const questionBtn3 = document.getElementById("question3");
+    const questionBtn4 = document.getElementById("question4");
 
     questionTitle.innerHTML = questions[num].title;
     questionBtn0.innerHTML = questions[num].choices[0];
     questionBtn1.innerHTML = questions[num].choices[1];
     questionBtn2.innerHTML = questions[num].choices[2];
     questionBtn3.innerHTML = questions[num].choices[3];
+    questionBtn4.innerHTML = questions[num].choices[4];
 }
 
 for (let i = 0; i < questionBtns.length; i++) {
@@ -123,7 +125,7 @@ function endQuiz() {
     questionPage.setAttribute("class", "hide");
     endPage.removeAttribute("class");
     endPage.setAttribute("class", "index");
-    timerVar.setAttribute("class", "hide");
+    timerbtn.setAttribute("class", "hide");
     highscorelink.setAttribute("class", "hide");
 }
 
@@ -143,3 +145,31 @@ submitBtn.addEventListener("click", function () {
     correctAnswer.setAttribute("class", "hide");
     incorrectAnswer.setAttribute("class", "hide");
 });
+
+const highscoreList = document.getElementById("highscore-list");
+const clearHighscores = document.getElementById("clear");
+
+function appendScores() {
+    let hs = JSON.parse(localStorage.getItem("highscores"));
+
+    hs.sort((score, otherScore) => {
+        return score.score - otherScore.score
+    });
+
+    for (let i = 0; i < hs.length; i++) {
+        let list = document.createElement("li");
+        list.innerText = (hs[i].initials + " : " + hs[i].score);
+        highscoreList.insertAdjacentElement("afterend", list);
+        list.setAttribute("class", "score")
+    }
+};
+
+clearHighscores.addEventListener("click", function () {
+    alert("All highscores have been cleared!");
+    localStorage.clear();
+    window.location.reload();
+});
+
+appendScores();
+
+
