@@ -11,52 +11,49 @@
 <body>
 
   <header>
-    <h1>JavaScript Coding Quiz</h1>
+    <h1 class="header">JavaScript Coding Quiz</h1>
   </header>
-    <div class="highscore-button">
+    <div class="highscore-btn">
       <button><a href="./highscores.html">View Highscores</a> </button>
-    </div>
-    <div class="timer" id="timer">
-      <button id="timer1">Time: </button>
+        <div class="timer" id="timer">
+          <button id="timer1">Time: </button>
+        </div>
     </div>
 
   <div class="quiz-container">
-    <div class="start-screen" id="start-screen"> 
-      <section class="start-title">
+    <div class="start-box" id="start-screen"> 
         <h2 class="screen-title">Welcome to the Coding Quiz Challenge!</h2>
-          <p>Test your knowledge in answering JavaScript code-related questions within the time limit. 
+          <p class="start-text">Test your knowledge in answering JavaScript code-related questions within the time limit. 
             Any incorrect answers will deduct your scoretime by ten seconds. 
-            View your highscore at the end of the quiz. Good Luck!</p>
-          <p>Press the button below to start the quiz!</p>
-        <button id="start-button">Start Quiz</button>
-      </section>
+            View your highscore at the end of the quiz. Good Luck!
+          Press the button below to start the quiz!</p>
+        <button id="start-btn">Start Quiz</button>
     </div>
   </div>
 
-  <div class="hidden" id="questions">
-    <h3 class="screen-title question-header" id="question-title">Test</h3>
+  <div class="hide" id="questions">
+    <h3 class="screen-title question-header" id="question-title">Choices</h3>
       <div class="choices" id="choices">
-        <button id="question0" class="question-button">Test1</button>
+        <button id="question0" class="question-button">Choices1</button>
         <br><br>
-        <button id="question1" class="question-button">Test2</button>
+        <button id="question1" class="question-button">Choices2</button>
         <br><br>
-        <button id="question2" class="question-button">Test3</button>
+        <button id="question2" class="question-button">Choices3</button>
         <br><br>
-        <button id="question3" class="question-button">Test4</button>
+        <button id="question3" class="question-button">Choices4</button>
         <br><br>
-        <button id="question4" class="question-button">Test5</button>
       </div>
   </div>  
 
-  <div class="hidden" id="correct">
+  <div class="hide" id="correct">
     <h3 class="answer-result">Correct!</h3>
   </div>
 
-  <div class="hidden" id="incorrect">
+  <div class="hide" id="incorrect">
     <h3 class="answer-result">Incorrect!</h3>
   </div>
 
-  <div class="hidden" id="end-screen">
+  <div class="hide" id="end-screen">
     <h2 class="screen-title">Well Done!</h2>
       <p>Your final score is <span class="final-score" id="score"></span>.</p>
       <p>Enter Initials: <input type="text" id="initials" max="3" required />
