@@ -39,7 +39,6 @@ const questions = [
     },
 ];
 
-
 const answers = [];
 let userFinal = [{ initials: "", score: 0 }];
 const userHighscores = [];
@@ -50,7 +49,7 @@ let seconds = 75;
 let questionIndex = 0;
 let score = 0;
 
-startBtn.onclick = startQuiz;
+// startBtn.onclick = startQuiz;
 
 function startQuiz() {
     startPage.setAttribute("class", "hide");
@@ -76,14 +75,12 @@ function renderQuestion(num) {
     const questionBtn1 = document.getElementById("question1");
     const questionBtn2 = document.getElementById("question2");
     const questionBtn3 = document.getElementById("question3");
-    const questionBtn4 = document.getElementById("question4");
 
     questionTitle.innerHTML = questions[num].title;
     questionBtn0.innerHTML = questions[num].choices[0];
     questionBtn1.innerHTML = questions[num].choices[1];
     questionBtn2.innerHTML = questions[num].choices[2];
     questionBtn3.innerHTML = questions[num].choices[3];
-    questionBtn4.innerHTML = questions[num].choices[4];
 }
 
 for (let i = 0; i < questionBtns.length; i++) {
@@ -94,6 +91,8 @@ for (let i = 0; i < questionBtns.length; i++) {
         let answer = button.innerHTML;
         if (answers.includes(answer) === true) {
             correctAnswer.removeAttribute("class");
+            hideFeedBack();
+
             if (questionIndex < 9) {
                 questionIndex++
                 renderQuestion(questionIndex);
@@ -104,6 +103,8 @@ for (let i = 0; i < questionBtns.length; i++) {
             }
         } else {
             incorrectAnswer.removeAttribute("class");
+            hideFeedBack();
+
             if (questionIndex < 9) {
                 questionIndex++
                 seconds -= 10;
@@ -118,6 +119,13 @@ for (let i = 0; i < questionBtns.length; i++) {
     });
 }
 
+function hideFeedBack(){
+    setTimeout(() => {
+       correctAnswer.setAttribute("class","hide");
+       incorrectAnswer.setAttribute("class","hide");
+    }, 1000);
+}
+
 function endQuiz() {
     let finalScore = document.getElementById("score");
     finalScore.innerHTML = score;
@@ -129,47 +137,44 @@ function endQuiz() {
     highscorelink.setAttribute("class", "hide");
 }
 
-const submitBtn = document.getElementById("submit");
+const submitBtn = document.getElementById("submit-form");
 submitBtn.addEventListener("click", function () {
-    let initials = document.getElementById("initials").value;
-    let pastScores = JSON.parse(localStorage.getItem("highscores"));
-    let highScore = [{ initials: initials, score: score }];
-
-    if (pastScores === null) {
-        pastScores = highScore;
-    } else {
-        pastScores.push(highScore[0]);
-    }
-    localStorage.setItem("highscores", JSON.stringify(pastScores));
-
-    correctAnswer.setAttribute("class", "hide");
-    incorrectAnswer.setAttribute("class", "hide");
+  let initials = document.getElementById("initials").value;
+  let pastScores = JSON.parse(localStorage.getItem("highscores")) || [];
+  let highScore = { initials: initials, score: score };
+  pastScores.push(highScore);
+  localStorage.setItem("highscores", JSON.stringify(pastScores));
+  displayHighscores();
 });
 
-const highscoreList = document.getElementById("highscore-list");
-const clearHighscores = document.getElementById("clear");
-
-function appendScores() {
-    let hs = JSON.parse(localStorage.getItem("highscores"));
-
-    hs.sort((score, otherScore) => {
-        return score.score - otherScore.score
-    });
-
-    for (let i = 0; i < hs.length; i++) {
-        let list = document.createElement("li");
-        list.innerText = (hs[i].initials + " : " + hs[i].score);
-        highscoreList.insertAdjacentElement("afterend", list);
-        list.setAttribute("class", "score")
-    }
-};
-
-clearHighscores.addEventListener("click", function () {
+function submitClear() {
     alert("All highscores have been cleared!");
     localStorage.clear();
     window.location.reload();
+}
+
+const goBackBtn = document.getElementById("go-back-btn");
+goBackBtn.addEventListener("click", () => {
+  window.location.href = "index.html";
 });
 
-appendScores();
 
+function displayHighscores() {
+    let pastScores = JSON.parse(localStorage.getItem("highscores")) || [];
+    let highscoreList = document.getElementById("highscore-list");
+    highscoreList.innerHTML = "";
+    for (let i = 0; i < pastScores.length; i++) {
+      let highscore = pastScores[i];
+      let li = document.createElement("li");
+      li.textContent = highscore.initials + " - " + highscore.score;
+      highscoreList.appendChild(li);
+    }
+}
 
+highscorelink.addEventListener("click", function () {
+  startPage.setAttribute("class", "hide");
+  questionPage.setAttribute("class", "hide");
+  endPage.removeAttribute("class");
+  highscorelink.setAttribute("class", "hide");
+  displayHighscores();
+});

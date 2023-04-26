@@ -14,10 +14,10 @@
     <h1 class="header">JavaScript Coding Quiz</h1>
   </header>
     <div class="highscore-btn">
-      <button><a href="./highscores.html">View Highscores</a> </button>
-        <div class="timer" id="timer">
-          <button id="timer1">Time: </button>
-        </div>
+      <button id="view-score"><a href="#">View Highscores</a> </button>      
+      <div class="timer" id="timer" style="display: none;">
+        <button id="timer1">Time: </button>
+      </div>
     </div>
 
   <div class="quiz-container">
@@ -27,7 +27,7 @@
             Any incorrect answers will deduct your scoretime by ten seconds. 
             View your highscore at the end of the quiz. Good Luck!
           Press the button below to start the quiz!</p>
-        <button id="start-btn">Start Quiz</button>
+        <button onclick="startQuiz()" id="start-btn">Start Quiz</button>
     </div>
   </div>
 
@@ -53,15 +53,19 @@
     <h3 class="answer-result">Incorrect!</h3>
   </div>
 
-  <div class="hide" id="end-screen">
-    <h2 class="screen-title">Well Done!</h2>
-      <p>Your final score is <span class="final-score" id="score"></span>.</p>
-      <p>Enter Initials: <input type="text" id="initials" max="3" required />
-      <a href="./highscores.html"><button id="submit">Submit</button></a>
-      </p>
-  </div>
-
-
+  <section id="end-screen" class="hide index">
+    <h2 class="screen-title">All done!</h2>
+      <p>Your final score is <span class="final-score" id="score"></span></p>
+    <form>
+      <label for="initials">Enter your initials:</label>
+      <input type="text" id="initials" name="initials">
+      <button type="button" id="submit-form">Submit</button>
+    </form>
+      <div id="highscore-list"></div>
+      <button id="go-back-btn" class="index">Go Back</button>
+      <button onclick="submitClear()" id="clear-highscores-btn" class="index">Clear Highscores</button>
+  </section> 
+  
   <script src="../assets/scripts/script.js"></script>
 </body>
 </html>
