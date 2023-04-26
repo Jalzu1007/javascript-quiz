@@ -9,7 +9,7 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f5f5f5;
 }
-
+/*Header styling*/
 header {
   background-color: #333;
   color: #fff;
@@ -17,7 +17,7 @@ header {
   text-align: center;
 }
 
-.highscore-btn {
+#highscore-btn {
   display: flex;
   justify-content:center;
   padding-right: 20px;
@@ -25,16 +25,16 @@ header {
 
 }
 
-.highscore-btn a {
+#highscore-btn a {
   text-decoration: none;
   color:#fff;
 } 
 
-.highscore-btn button:hover {
+#highscore-btn button:hover {
   background-color: #555;
 }
 
-.highscore-btn button {
+#highscore-btn button {
   background-color: #333;
   border: none;
   color: #fff;
@@ -45,7 +45,7 @@ header {
   border-radius: 10px;
   margin-right:10px;
 }
-  
+/*Quiz section styling*/  
 .quiz-container {
   max-width: 800px;
   margin: 0 auto;
@@ -81,7 +81,7 @@ header {
 .start-box button:hover {
   background-color: #555;
 }
-
+/*Question and choices styling*/
 #questions{
   text-align: center;
 }
@@ -109,11 +109,11 @@ header {
 .question-button:hover {
   background-color: #f5f5f5;
 }
-
+/*Hiding containers styling*/
 .hide {
   display: none;
 }
-
+/*Correct and Incorrect styling for choices*/
 .answer-result {
   font-size: 32px;
   text-align: center;
@@ -127,7 +127,7 @@ header {
 #incorrect {
   color: red;
 }
-
+/* Highscore results styling screen*/
 #end-screen {
   text-align: center;
 }
@@ -142,22 +142,22 @@ header {
   
 }
 
-#index .screen-title {
+.index .screen-title {
   margin-bottom: 20px;
 }
 
-#index #highscore-list {
+.index #highscore-list {
   font-size: 18px;
   list-style: none;
   margin-bottom: 20px;
   padding-left: 0;
 }
 
-#index #highscore-list li {
+.index #highscore-list li {
   margin-bottom: 10px;
 }
 
-#index button {
+.index button {
   background-color: #333;
   border: none;
   color: #fff;
@@ -169,31 +169,31 @@ header {
   margin-right: 10px;
 }
 
-#index button:hover {
+.index button:hover {
   background-color: #555;
 }
 
-#index input[type="text"] {
+.index input[type="text"] {
   padding: 10px;
   font-size: 16px;
   border: none;
   border-radius: 5px;
   margin-left: 5px;
 }
-
+/*Responsive Design styling*/
 @media screen and (max-width: 600px) {
   header {
       font-size: 24px;
   }
 
-  .highscore-btn {
+  #highscore-btn {
     display: flex;
     justify-content: center;
     padding-right: 0;
     margin-top: 20px;
 }
 
-.highscore-btn button {
+#highscore-btn button {
     margin-right: 0;
 }
 
@@ -229,8 +229,6 @@ header {
 max-width: 300px;
 }
 
-css
-Copy code
 .start-box button {
     font-size: 14px;
 }

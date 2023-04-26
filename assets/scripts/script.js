@@ -49,8 +49,6 @@ let seconds = 75;
 let questionIndex = 0;
 let score = 0;
 
-// startBtn.onclick = startQuiz;
-
 function startQuiz() {
     startPage.setAttribute("class", "hide");
     questionPage.removeAttribute("class");
@@ -69,7 +67,6 @@ function startQuiz() {
 }
 
 function renderQuestion(num) {
-
     const questionTitle = document.getElementById("question-title");
     const questionBtn0 = document.getElementById("question0");
     const questionBtn1 = document.getElementById("question1");
@@ -123,9 +120,9 @@ function hideFeedBack(){
     setTimeout(() => {
        correctAnswer.setAttribute("class","hide");
        incorrectAnswer.setAttribute("class","hide");
-    }, 1000);
+    }, 800);
 }
-
+ 
 function endQuiz() {
     let finalScore = document.getElementById("score");
     finalScore.innerHTML = score;
@@ -158,7 +155,6 @@ goBackBtn.addEventListener("click", () => {
   window.location.href = "index.html";
 });
 
-
 function displayHighscores() {
     let pastScores = JSON.parse(localStorage.getItem("highscores")) || [];
     let highscoreList = document.getElementById("highscore-list");
@@ -176,5 +172,6 @@ highscorelink.addEventListener("click", function () {
   questionPage.setAttribute("class", "hide");
   endPage.removeAttribute("class");
   highscorelink.setAttribute("class", "hide");
+  timerbtn.setAttribute("class", "hide")
   displayHighscores();
 });

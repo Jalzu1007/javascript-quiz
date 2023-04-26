@@ -9,18 +9,19 @@
     <title>JavaScript Coding Quiz</title>
 </head>
 <body>
-
+<!--Header Begins-->
   <header>
     <h1 class="header">JavaScript Coding Quiz</h1>
   </header>
-    <div class="highscore-btn">
+<!--View Higscores and Timer-->
+    <div id="highscore-btn">
       <button id="view-score"><a href="#">View Highscores</a> </button>      
       <div class="timer" id="timer" style="display: none;">
         <button id="timer1">Time: </button>
       </div>
     </div>
-
-  <div class="quiz-container">
+<!--Quiz container-->
+  <main class="quiz-container">
     <div class="start-box" id="start-screen"> 
         <h2 class="screen-title">Welcome to the Coding Quiz Challenge!</h2>
           <p class="start-text">Test your knowledge in answering JavaScript code-related questions within the time limit. 
@@ -29,9 +30,9 @@
           Press the button below to start the quiz!</p>
         <button onclick="startQuiz()" id="start-btn">Start Quiz</button>
     </div>
-  </div>
-
-  <div class="hide" id="questions">
+  </main>
+<!--Questions for the quiz container and choices-->
+  <section class="hide" id="questions">
     <h3 class="screen-title question-header" id="question-title">Questions</h3>
       <div class="choices" id="choices">
         <button id="question0" class="question-button">Question1</button>
@@ -43,8 +44,8 @@
         <button id="question3" class="question-button">Question4</button>
         <br><br>
       </div>
-  </div>  
-
+  </section>  
+<!--Correct and Incorrect container-->
   <div class="hide" id="correct">
     <h3 class="answer-result">Correct!</h3>
   </div>
@@ -52,7 +53,7 @@
   <div class="hide" id="incorrect">
     <h3 class="answer-result">Incorrect!</h3>
   </div>
-
+<!--End Quiz container for results-->
   <section id="end-screen" class="hide index">
     <h2 class="screen-title">All done!</h2>
       <p>Your final score is <span class="final-score" id="score"></span></p>
@@ -65,7 +66,7 @@
       <button id="go-back-btn" class="index">Go Back</button>
       <button onclick="submitClear()" id="clear-highscores-btn" class="index">Clear Highscores</button>
   </section> 
-  
+
   <script src="../assets/scripts/script.js"></script>
 </body>
 </html>
