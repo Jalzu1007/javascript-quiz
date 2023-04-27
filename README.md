@@ -66,6 +66,7 @@ I used the following third-party assets in this project:
 - https://developer.mozilla.org/en-US/docs/Web/API/setInterval
 - https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
 - https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
+- https://emojipedia.org/emoji/%F0%9F%8F%86/
 
 ## License
 
