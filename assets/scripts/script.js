@@ -10,7 +10,7 @@ const timerbtn = document.getElementById("timer1");
 const correctAnswer = document.getElementById("correct");
 const incorrectAnswer = document.getElementById("incorrect");
 
-//Added questions using an object to an array
+//Added questions using an objects array
 const questions = [
     {
         title: "Commonly used data types DO NOT include:",
@@ -67,18 +67,21 @@ function startQuiz() {
 }
 
 function renderQuestion(num) {
-    const questionTitle = document.getElementById("question-title");
-    const questionBtn0 = document.getElementById("question0");
-    const questionBtn1 = document.getElementById("question1");
-    const questionBtn2 = document.getElementById("question2");
-    const questionBtn3 = document.getElementById("question3");
-
-    questionTitle.innerHTML = questions[num].title;
-    questionBtn0.innerHTML = questions[num].choices[0];
-    questionBtn1.innerHTML = questions[num].choices[1];
-    questionBtn2.innerHTML = questions[num].choices[2];
-    questionBtn3.innerHTML = questions[num].choices[3];
-}
+    const question = questions[num];
+    if (question) {
+      const questionTitle = document.getElementById("question-title");
+      const questionBtn0 = document.getElementById("question0");
+      const questionBtn1 = document.getElementById("question1");
+      const questionBtn2 = document.getElementById("question2");
+      const questionBtn3 = document.getElementById("question3");
+  
+      questionTitle.innerHTML = question.title;
+      questionBtn0.innerHTML = question.choices[0];
+      questionBtn1.innerHTML = question.choices[1];
+      questionBtn2.innerHTML = question.choices[2];
+      questionBtn3.innerHTML = question.choices[3];
+    }
+  }
 
 for (let i = 0; i < questionBtns.length; i++) {
     const button = questionBtns[i];
@@ -90,24 +93,24 @@ for (let i = 0; i < questionBtns.length; i++) {
             correctAnswer.removeAttribute("class");
             hideFeedBack();
 
-            if (questionIndex < 9) {
+            if (questionIndex < questions.length) {
                 questionIndex++
                 renderQuestion(questionIndex);
             }
-            else if (questionIndex === 9) {
+            else if (questionIndex === questions.length) {
                 score += seconds;
                 endQuiz();
             }
-        } else {
+        }   else {
             incorrectAnswer.removeAttribute("class");
             hideFeedBack();
 
-            if (questionIndex < 9) {
+            if (questionIndex < questions.length) {
                 questionIndex++
                 seconds -= 10;
                 renderQuestion(questionIndex);
             }
-            else if (questionIndex === 9) {
+            else if (questionIndex === questions.length) {
                 seconds -= 10;
                 score += seconds;
                 endQuiz();
