@@ -36,11 +36,11 @@ To use the JavaScript Coding Quiz, follow these steps:
 
 Deployed website:
 
-
+https://jalzu1007.github.io/javascript-quiz/
 
 Screenshot of the JavaScript coding quiz:
 
-![alt text](../assets/images) ![alt text](../assets/images) ![alt text](../assets/images) 
+![alt text](./assets/images/quiz-screenshot.png) ![alt text](./assets/images/quiz-screenshot1.png) ![alt text](./assets/images/quiz-screenshot2.png) 
 
 ## Credits
 
