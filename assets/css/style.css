@@ -167,6 +167,7 @@ header {
   text-align: center;
   text-decoration: none;
   margin-right: 10px;
+  border-radius: 10px;
 }
 
 .index button:hover {
