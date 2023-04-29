@@ -49,6 +49,7 @@ let seconds = 75;
 let questionIndex = 0;
 let score = 0;
 
+//Start quiz setting and removing with timer set interval
 function startQuiz() {
     startPage.setAttribute("class", "hide");
     questionPage.removeAttribute("class");
@@ -66,6 +67,7 @@ function startQuiz() {
     renderQuestion(questionIndex)
 }
 
+//Questions and choices
 function renderQuestion(num) {
     const question = questions[num];
     if (question) {
@@ -83,6 +85,7 @@ function renderQuestion(num) {
     }
   }
 
+  //Looping and hiding correct and incorrect answers
 for (let i = 0; i < questionBtns.length; i++) {
     const button = questionBtns[i];
     button.addEventListener("click", () => {
@@ -125,7 +128,8 @@ function hideFeedBack(){
        incorrectAnswer.setAttribute("class","hide");
     }, 800);
 }
- 
+
+//End quiz container with local storage for final score
 function endQuiz() {
     let finalScore = document.getElementById("score");
     finalScore.innerHTML = score;
@@ -158,6 +162,7 @@ goBackBtn.addEventListener("click", () => {
   window.location.href = "index.html";
 });
 
+//Display highscores from local storage
 function displayHighscores() {
     let pastScores = JSON.parse(localStorage.getItem("highscores")) || [];
     let highscoreList = document.getElementById("highscore-list");
